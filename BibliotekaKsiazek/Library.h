@@ -8,7 +8,6 @@ class Library
 public:
 	int size;
 	Library();
-	//Library(char c);
 	virtual ~Library() {};
 	virtual void show() = 0;
 	virtual void update(int pos) = 0;
@@ -19,7 +18,5 @@ public:
 	virtual void readFromFile() = 0;
 	virtual bool fileValid() = 0;
 	virtual void deletePointers() = 0;
-	//void sort();
-	//bool compare(Book& a, Book& b);
 };
 

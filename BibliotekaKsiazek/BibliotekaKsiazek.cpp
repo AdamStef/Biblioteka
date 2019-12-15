@@ -107,7 +107,6 @@ int main()
 		switch (biblioteka)
 		{
 		case '1':
-			
 			system("cls");
 			cout << "Witaj w bibliotece ksiazek!" << endl;
 			while (wybor != 'c')

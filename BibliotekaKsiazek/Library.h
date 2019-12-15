@@ -19,6 +19,7 @@ public:
 	void update(int pos);
 	void deleteB(int pos);
 	int getSize();
+	void decreaseSize();
 	void saveToFile();
 	void readFromFile();
 	bool fileValid();

@@ -3,13 +3,17 @@
 Book::Book() : Object()
 {
 	m_author = "";
-	m_is_lent = false;
 }
 
 Book::Book(int id, string title, string genre, string description, string pub_date, string author) : Object(id, title, genre, description, pub_date)
 {
 	m_author = author;
-	m_is_lent = false;
+}
+
+Book::Book(int id, string title, string genre, string description, string pub_date, string author, bool error) : Object(id, title, genre, description, pub_date)
+{
+	m_author = author;
+	m_error = error;
 }
 
 void Book::show()
@@ -26,6 +30,7 @@ void Book::show()
 
 Book Book::add()
 {
+	bool isDigit = false;
 	int id = 0;
 	string idS;
 	string title;
@@ -46,9 +51,24 @@ Book Book::add()
 	cout << "Podaj date publikacji: ";
 	getline(cin, pub_date);
 
-	id = stoi(idS);
+	for (auto i : idS)
+	{
+		if (isdigit(i))
+			isDigit = true;
+		else
+		{
+			isDigit = false;
+			break;
+		}
+	}
+	if (isDigit)
+		id = stoi(idS);
+	else
+	{
+		return Book(0, "", "", "", "", "", true);
+	}
 
-	return Book(id, title, genre, description, pub_date, author);
+	return Book(id, title, genre, description, pub_date, author, false);
 }
 //
 //Book Book::add(Book book)
@@ -70,6 +90,7 @@ Book Book::add()
 
 void Book::update()
 {
+	bool isDigit = false;
 	int id = 0;
 	string idS = "";
 	string title = "";
@@ -89,6 +110,24 @@ void Book::update()
 	getline(cin, description);
 	cout << "Podaj date publikacji: ";
 	getline(cin, pub_date);
+
+	for (auto i : idS)
+	{
+		if (isdigit(i))
+			isDigit = true;
+		else
+		{
+			isDigit = false;
+			break;
+		}
+	}
+	if (isDigit)
+		id = stoi(idS);
+	else
+	{
+		cout << "\nZle ID" << endl;
+		return;
+	}
 
 	if (id == 0)
 		id = m_id;
@@ -144,6 +183,16 @@ string Book::getDes()
 string Book::getPubDate()
 {
 	return m_pub_date;
+}
+
+bool Book::isError()
+{
+	return m_error;
+}
+
+void Book::setError(bool is)
+{
+	m_error = is;
 }
 
 string Book::setTitle(string s)

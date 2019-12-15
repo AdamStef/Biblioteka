@@ -52,6 +52,11 @@ int Library::getSize()
 	return size;
 }
 
+void Library::decreaseSize()
+{
+	size--;
+}
+
 void Library::saveToFile()
 {
 	fstream file;

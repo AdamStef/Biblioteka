@@ -4,19 +4,20 @@ Library::Library()
 {
 	size = 0;
 	books = new Book[50];
+	games = new Game[50];
 }
 
-Library::~Library()
-{
-	delete[] books;
-}
 
-void Library::show()
+void Library::showBooks()
 {
 	for (int i = 0; i < size; i++)
 	{
 		books[i].show();
 	}
+}
+
+void Library::showGames()
+{
 }
 
 void Library::add(Book book, int pos)
@@ -26,6 +27,10 @@ void Library::add(Book book, int pos)
 
 	books[pos] = book;
 	size++;
+}
+
+void Library::add(Game game, int pos)
+{
 }
 
 void Library::update(int pos)
@@ -58,6 +63,7 @@ void Library::saveToFile()
 		{
 			file << books[i].getId() << endl;
 			file << books[i].getTitle() << endl;
+			file << books[i].getGenre() << endl;
 			file << books[i].getAuthor() << endl;
 			file << books[i].getDes() << endl;
 			file << books[i].getPubDate() << endl;
@@ -73,6 +79,7 @@ void Library::readFromFile()
 	int id;
 	string idS;
 	string title;
+	string genre;
 	string author;
 	string description;
 	string pub_date;
@@ -88,13 +95,14 @@ void Library::readFromFile()
 		{
 			getline(file, idS);
 			getline(file, title);
+			getline(file, genre);
 			getline(file, author);
 			getline(file, description);
 			getline(file, pub_date);
 
 			id = std::stoi(idS);
 
-			this->add(Book(id, title, author, description, pub_date), i);
+			this->add(Book(id, title, genre, description, pub_date, author), i);
 			size--;
 		}
 
@@ -127,6 +135,12 @@ bool Library::fileValid()
 		return false;
 	}
 
+}
+
+void Library::deletePointers()
+{
+	delete[] books;
+	delete[] games;
 }
 
 

@@ -63,7 +63,7 @@ int main()
 			if (lib.getSize() == 0)
 				cout << "Brak ksiazek w bibliotece." << endl;
 			else
-				lib.show();
+				lib.showBooks();
 			break;
 		case '2':
 			cout << "Dodawanie..." << endl;
@@ -97,7 +97,7 @@ int main()
 			break;
 		case 'W':
 		case 'w':
-			cout << "Czy chcesz wczytać dane?";
+			cout << "Czy chcesz wczytac dane?";
 			if (lib.fileValid() && forSure())
 			{
 				lib = Library();
@@ -125,5 +125,5 @@ int main()
 			break;
 		}
 	}
-	lib.~Library();
+	lib.deletePointers();
 }

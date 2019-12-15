@@ -6,7 +6,7 @@ using namespace std;
 
 class Object
 {
-private:
+protected:
 	int m_id;
 	string m_title;
 	string m_genre;
@@ -14,15 +14,17 @@ private:
 	string m_pub_date;
 public:
 	Object();
-	Object(int id, string title, string description, string pub_date);
+	Object(int id, string title, string genre, string description, string pub_date);
 	virtual ~Object(){}
-	virtual void show();
-	virtual void update();
-	virtual string getTitle();
-	virtual string getDes();
-	virtual string getPubDate();
-	virtual string setTitle(string s);
-	virtual string setDes(string s);
-	virtual string setPubDate(string s);
+	virtual void show() = 0;
+	virtual void update() = 0;
+	virtual int getId() = 0;
+	virtual string getTitle() = 0;
+	virtual string getGenre() = 0;
+	virtual string getDes() = 0;
+	virtual string getPubDate() = 0;
+	virtual string setTitle(string s) = 0;
+	virtual string setDes(string s) = 0;
+	virtual string setPubDate(string s) = 0;
 };
 

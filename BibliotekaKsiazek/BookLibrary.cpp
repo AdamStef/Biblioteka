@@ -90,8 +90,8 @@ void BookLibrary::readFromFile()
 		{
 			getline(file, idS);
 			getline(file, title);
-			getline(file, genre);
 			getline(file, author);
+			getline(file, genre);
 			getline(file, description);
 			getline(file, pub_date);
 

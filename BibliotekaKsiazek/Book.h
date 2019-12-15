@@ -17,11 +17,7 @@ public:
 	virtual ~Book() {};
 	virtual void show();
 	Book add();
-	//Book add(Book book);
 	virtual void update();
-	//void deleteB(Book book);
-	//void lend(Book book);
-	//void returnB(Book book);
 
 	virtual int getId();
 	virtual string getTitle();
@@ -31,10 +27,5 @@ public:
 	virtual string getPubDate();
 	bool isError();
 	void setError(bool is);
-
-	virtual string setTitle(string s);
-	string setAuthor(string s);
-	virtual string setDes(string s);
-	virtual string setPubDate(string s);
 };
 

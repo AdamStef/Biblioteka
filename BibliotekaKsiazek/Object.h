@@ -23,8 +23,5 @@ public:
 	virtual string getGenre() = 0;
 	virtual string getDes() = 0;
 	virtual string getPubDate() = 0;
-	virtual string setTitle(string s) = 0;
-	virtual string setDes(string s) = 0;
-	virtual string setPubDate(string s) = 0;
 };
 

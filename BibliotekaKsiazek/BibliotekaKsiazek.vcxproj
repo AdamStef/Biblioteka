@@ -153,13 +153,17 @@
   <ItemGroup>
     <ClCompile Include="BibliotekaKsiazek.cpp" />
     <ClCompile Include="Book.cpp" />
+    <ClCompile Include="BookLibrary.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameLibrary.cpp" />
     <ClCompile Include="Library.cpp" />
     <ClCompile Include="Object.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Book.h" />
+    <ClInclude Include="BookLibrary.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameLibrary.h" />
     <ClInclude Include="Library.h" />
     <ClInclude Include="Object.h" />
   </ItemGroup>

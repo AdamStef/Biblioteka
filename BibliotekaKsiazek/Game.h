@@ -11,9 +11,11 @@ private:
 	bool m_singleplayer;
 	bool m_multiplayer;
 	int m_ageLimit;
+	bool m_error;
 public:
 	Game();
-	Game(int id, string title, string genre, string description, string pub_date, string single, string multi);
+	Game(int id, string title, string genre, string description, string pub_date, int ageLimit, string single, string multi);
+	Game(int id, string title, string genre, string description, string pub_date, int ageLimit, string single, string multi, bool error);
 	virtual ~Game() {};
 	virtual void show();
 	Game add();
@@ -26,9 +28,8 @@ public:
 	virtual string getPubDate();
 	string getSingle();
 	string getMulti();
-
-	virtual string setTitle(string s);
-	virtual string setDes(string s);
-	virtual string setPubDate(string s);
+	int getAgeLimit();
+	bool isError();
+	void setError(bool is);
 };
 

@@ -70,23 +70,6 @@ Book Book::add()
 
 	return Book(id, title, genre, description, pub_date, author, false);
 }
-//
-//Book Book::add(Book book)
-//{
-//	cout << "Podaj ID: ";
-//	cin >> book.m_id;
-//	cout << "Podaj tytul: ";
-//	cin >> book.m_title;
-//	cout << "Podaj autora: ";
-//	cin >> book.m_author;
-//	cout << "Podaj opis: ";
-//	cin >> book.m_description;
-//	cout << "Podaj date publikacji: ";
-//	cin >> book.m_pub_date;
-//	//string name = to_string(id);
-//	//Book name = Book(id, title, author, description, pub_date);
-//	return Book(book.m_id, book.m_title, book.m_author, book.m_description, book.m_pub_date);
-//}
 
 void Book::update()
 {
@@ -111,28 +94,33 @@ void Book::update()
 	cout << "Podaj date publikacji: ";
 	getline(cin, pub_date);
 
-	for (auto i : idS)
-	{
-		if (isdigit(i))
-			isDigit = true;
-		else
-		{
-			isDigit = false;
-			break;
-		}
-	}
-	if (isDigit)
-		id = stoi(idS);
+	if (idS == "")
+		id = m_id;
 	else
 	{
-		cout << "\nZle ID" << endl;
-		return;
+		for (auto i : idS)
+		{
+			if (isdigit(i))
+				isDigit = true;
+			else
+			{
+				isDigit = false;
+				break;
+			}
+		}
+		if (isDigit)
+			id = stoi(idS);
+		else
+		{
+			cout << "\nZle ID" << endl;
+			return;
+		}
 	}
 
 	if (id == 0)
 		id = m_id;
-	if (title == "")
-		title = m_genre;
+	if (genre == "")
+		genre = m_genre;
 	if (title == "")
 		title = m_title;
 	if (author == "")
@@ -149,11 +137,6 @@ void Book::update()
 	m_description = description;
 	m_pub_date = pub_date;
 }
-//
-//void Book::deleteB(Book book)
-//{
-//	book.~Book();
-//}
 
 int Book::getId()
 {
@@ -193,24 +176,4 @@ bool Book::isError()
 void Book::setError(bool is)
 {
 	m_error = is;
-}
-
-string Book::setTitle(string s)
-{
-	return m_title = s;
-}
-
-string Book::setAuthor(string s)
-{
-	return m_author = s;
-}
-
-string Book::setDes(string s)
-{
-	return m_description = s;
-}
-
-string Book::setPubDate(string s)
-{
-	return m_pub_date = s;
 }
